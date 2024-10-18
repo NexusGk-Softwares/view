@@ -1,0 +1,513 @@
+:root {
+    --bg-color: #0a0a0a; /* Deep black background */
+    --text-color: #f4f4f8; /* Light gray for readable contrast */
+    --primary-color: #26ff00; /* Neon Green for headings and highlights */
+    --secondary-color: #ff006a; /* Hot Pink for accents */
+    --accent-color: #5900ff; /* Bright Purple for buttons and interactive elements */
+    --link-color: #00aaff; /* Electric Blue for links and hover effects */
+    --card-bg: #1c1c1c; /* Dark gray for card background */
+    --header-bg: rgba(10, 10, 10, 0.9); /* Darker semi-transparent background for header */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+header {
+    background-color: var(--header-bg);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5); /* Strong shadow */
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.whatsapp-container {
+    position: fixed; /* Positioning the container */
+    bottom: 20px; /* Distance from the bottom */
+    right: 20px; /* Distance from the right */
+    display: inline-block; /* Allow positioning */
+}
+
+.whatsapp-icon {
+    border-radius: 50%; /* Rounded shape */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5); /* Shadow for depth */
+    z-index: 1000; /* Ensure it's above other elements */
+    transition: transform 0.3s; /* Smooth transition for hover effect */
+}
+
+.whatsapp-icon:hover {
+    transform: scale(1.1); /* Slightly increase size on hover */
+}
+
+.tooltip {
+    visibility: hidden; /* Hide tooltip by default */
+    width: 150px; /* Tooltip width */
+    background-color: rgb(255, 255, 255); /* Background color */
+    color: #000000; /* Text color */
+    text-align: center; /* Center text */
+    border-radius: 5px; /* Rounded corners */
+    padding: 5px; /* Padding */
+    position: absolute; /* Position relative to the icon */
+    bottom: 70px; /* Position above the icon */
+    right: -45%; /* Center tooltip horizontally */
+    opacity: 0; /* Make it transparent */
+    transition: opacity 0.3s; /* Smooth transition */
+    z-index: 1000; /* Ensure it appears above other elements */
+}
+
+.whatsapp-container:hover .tooltip {
+    visibility: visible; /* Show tooltip on hover */
+    opacity: 1; /* Make it opaque */
+}
+
+
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.nav-menu {
+    display: flex;
+    list-style-type: none;
+}
+
+.nav-menu li {
+    margin-left: 2rem;
+}
+
+.nav-menu li a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.nav-menu li a:hover {
+    color: var(--primary-color);
+}
+
+.nav-toggle {
+    display: none;
+}
+
+.nav-toggle-label {
+    display: none;
+    cursor: pointer;
+}
+/* Hamburger Icon Styling */
+.nav-toggle {
+    display: none;
+}
+
+.nav-toggle-label {
+    display: none;
+    cursor: pointer;
+    position: relative;
+    width: 30px;
+    height: 21px;
+}
+
+.nav-toggle-label span,
+.nav-toggle-label span::before,
+.nav-toggle-label span::after {
+    display: block;
+    background: var(--text-color);
+    height: 3px;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    transition: all 0.3s ease;
+}
+
+.nav-toggle-label span::before,
+.nav-toggle-label span::after {
+    content: '';
+    position: absolute;
+}
+
+.nav-toggle-label span::before {
+    bottom: 9px;
+}
+
+.nav-toggle-label span::after {
+    top: 9px;
+}
+
+/* Menu initially hidden */
+.nav-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: var(--card-bg);
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem 0;
+    transform: translateY(-100%);
+    transition: transform 0.3s ease;
+    opacity: 0;
+}
+
+/* Show menu when the toggle is checked */
+.nav-toggle:checked + .nav-toggle-label + .nav-menu {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.nav-menu li {
+    margin: 1rem 0;
+}
+
+/* Show hamburger label on small screens */
+@media screen and (max-width: 768px) {
+    .nav-toggle-label {
+        display: block;
+    }
+}
+
+
+main {
+    padding-top: 4rem;
+}
+
+section {
+    padding: 5rem 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+h1, h2, h3 {
+    margin-bottom: 1.5rem;
+    color: var(--primary-color); /* Neon Green for headings */
+}
+
+h1 {
+    font-size: 3rem;
+    font-weight: 700;
+}
+
+h2 {
+    font-size: 2.5rem;
+    font-weight: 600;
+}
+
+h3 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: var(--secondary-color); /* Hot Pink for emphasis */
+}
+
+a {
+    color: var(--link-color); /* Electric Blue for links */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--primary-color); /* Neon Green on hover */
+}
+
+#hero {
+    text-align: center;
+    padding: 8rem 2rem;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80');
+    background-size: cover;
+    background-position: center;
+    color: #ffffff;
+}
+
+#hero h1, #hero p {
+    margin-bottom: 2rem;
+}
+
+.subtitle {
+    font-size: 1.5rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: var(--accent-color); /* Bright Purple for buttons */
+    color: #ffffff;
+    padding: 0.8rem 2rem;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: var(--primary-color); /* Neon Green on hover */
+}
+
+.about-content {
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+}
+
+.profile-image {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 10px 20px rgb(60, 187, 10); /* Stronger shadow */
+}
+
+.about-text p {
+    margin-bottom: 1rem;
+}
+/* Expertise Section */
+#expertise {
+    padding: 5rem 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+    box-shadow: 0 10px 20px rgb(60, 187, 10); /* Stronger shadow */
+
+}
+
+#expertise h2 {
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+/* Progress Bar Container */
+.progress-container {
+    margin-top: 1rem;
+}
+
+/* Label for each progress */
+.progress-container span {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+/* Progress Bar Styling */
+.progress-bar {
+    background-color: var(--bg-color); /* or #e0e0e0 */
+    border-radius: 10px;
+    overflow: hidden;
+    height: 10px;
+    margin-bottom: 1rem;
+}
+
+/* Progress bar fill with animation */
+.progress {
+    background-color: var(--accent-color); /* Neon green or another bright color */
+    height: 100%;
+    border-radius: 10px;
+    width: 0; /* Start at 0 */
+    transition: width 0.4s ease; /* Animation for width change */
+}
+
+/* Expertise Cards Grid */
+.expertise-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+/* Expertise Cards */
+.expertise-card {
+    background-color: var(--card-bg);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.expertise-card:hover {
+    transform: translateY(-5px);
+}
+
+.expertise-card ul {
+    list-style-type: none;
+    margin-top: 1rem;
+}
+
+.expertise-card li {
+    margin-bottom: 0.5rem;
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.expertise-card li::before {
+    content: '•';
+    color: var(--accent-color);
+    position: absolute;
+    left: 0;
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.project-card {
+    background-color: var(--card-bg);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5); /* Stronger shadow */
+    transition: transform 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+}
+
+.project-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.project-info {
+    padding: 1.5rem;
+}
+
+.project-info h3 {
+    margin-bottom: 1rem;
+}
+
+.technologies {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.technologies span {
+    background-color: var(--accent-color);
+    color: #ffffff;
+    padding: 0.2rem 0.5rem;
+    border-radius: 15px;
+    font-size: 0.8rem;
+}
+
+.contact-info {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.contact-link {
+    color: var(--text-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+    display: flex;
+    align-items: center;
+}
+
+.contact-link:hover {
+    color: var(--primary-color);
+}
+
+.contact-link .icon {
+    font-size: 1.5rem;
+    margin-right: 0.5rem;
+}
+
+footer {
+    background-color: var(--card-bg);
+    color: #ffffff;
+    text-align: center;
+    padding: 1rem;
+    margin-top: 2rem;
+    box-shadow: 0 10px 20px rgb(60, 187, 10); /* Stronger shadow */
+
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 768px) {
+    .nav-toggle-label {
+        display: block;
+        position: relative;
+        width: 30px;
+        height: 21px;
+    }
+
+    .nav-toggle-label span,
+    .nav-toggle-label span::before,
+    .nav-toggle-label span::after {
+        display: block;
+        background: var(--text-color);
+        height: 3px;
+        width: 30px;
+        position: absolute;
+        left: 0;
+        transition: all 0.3s ease;
+    }
+
+    .nav-toggle-label span::before,
+    .nav-toggle-label span::after {
+        content: '';
+    }
+
+    .nav-toggle-label span::before {
+        bottom: 9px;
+    }
+
+    .nav-toggle-label span::after {
+        top: 9px;
+    }
+
+    .nav-menu {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        background: var(--card-bg);
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        padding: 1rem 0;
+        transform: translateY(-100%);
+        transition: transform 0.3s ease;
+        opacity: 0;
+    }
+
+    .nav-toggle:checked ~ .nav-menu {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    .nav-menu li {
+        margin: 1rem 0;
+    }
+
+    .about-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .profile-image {
+        margin-bottom: 2rem;
+    }
+}
